@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      "powercalc@^3.0.0",
+      "/home/bradyzhu/Documents/SOCRAT"
+    ],
+    [
+      "powercalc@^3.0.0",
+      "/home/bradyzhu/Documents/SOCRAT"
+    ],
+    [
+      "powercalc@^3.0.0",
+      "/home/bradyzhu/Documents/SOCRAT"
+    ],
+    [
+      "powercalc@~2.2.0",
+      "/home/bradyzhu/Documents/SOCRAT"
+    ]
+  ],
+  "_from": "powercalc@^3.6.0",
+  "_id": "powercalc@3.7.0",
+  "_inBundle": false,
+  "_inCache": true,
+  "_installable": true,
+  "_integrity": "sha1-Hw1XOJTCh8nS4ce0rYMrx5+Y10c=",
+  "_location": "/powercalc",
+  "_nodeVersion": "4.2.6",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/powercalc-3.6.0.tgz_1486742857587_0.07350358739495277"
+  },
+  "_npmUser": {
+    "email": "bradyzhu@umich.edu",
+    "name": "bradyzhu"
+  },
+  "_npmVersion": "3.5.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "powercalc@^3.6.0",
+    "name": "powercalc",
+    "escapedName": "powercalc",
+    "rawSpec": "^3.6.0",
+    "saveSpec": null,
+    "fetchSpec": "^3.6.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/powercalc/-/powercalc-3.7.0.tgz",
+  "_shasum": "1f0d573894c287c9d2e1c7b4ad832bc79f98d747",
+  "_shrinkwrap": null,
+  "_spec": "powercalc@^3.6.0",
+  "_where": "/Users/bradyzhu/Documents/SOCRAT",
+  "author": "",
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1"
+  },
+  "deprecated": false,
+  "description": "Includes just the basic packages needed for lineear regression. Still needs modification as powercalc is being implmenting",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "42c5873533f2875c1727268094ff6524f54f63ed",
+    "tarball": "https://registry.npmjs.org/powercalc/-/powercalc-3.6.0.tgz"
+  },
+  "keywords": [
+    "calc",
+    "power"
+  ],
+  "license": "ISC",
+  "main": "custom.js",
+  "maintainers": [
+    {
+      "name": "bradyzhu",
+      "email": "bradyzhu@umich.edu"
+    }
+  ],
+  "name": "powercalc",
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.7.0"
+}
