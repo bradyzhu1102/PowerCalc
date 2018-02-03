@@ -2429,55 +2429,25 @@ SimpleChi2GUI.Power_changed = function ()   {
     this.click();
   }
 
-module.exports.SimpleChi2GUI_handle = function(id, key, value){
+module.exports.SimpleChi2GUI_handle = function(params){
    if(isNullOrEmpty(SimpleChi2GUI.n)){
       SimpleChi2GUI.news(); 
          SimpleChi2GUI.gui();
          SimpleChi2GUI.click();
      }
-     if(!isNullOrEmpty(id)){
-          if(!isNullOrEmpty(key)){
-            if(key=="proChi2"){
-              if(!isNullOrEmpty(value)){
-                SimpleChi2GUI.proChi2 = parseFloat(value);
-                SimpleChi2GUI.click();
-              }
-            }
-            if(key=="proN"){
-              if(!isNullOrEmpty(value)){
-                 SimpleChi2GUI.proN = parseFloat(value);
-                 SimpleChi2GUI.click();
-              }
-             }
-             if(key=="n"){
-               if(!isNullOrEmpty(value)){
-                 SimpleChi2GUI.n = parseFloat(value);
-                 SimpleChi2GUI.click();
-               }
-             }
-             if(key=="df"){
-               if(!isNullOrEmpty(value)){
-                 SimpleChi2GUI.df = parseFloat(value);
-                 SimpleChi2GUI.click();
-               }
-             }
-             if(key=="Alpha"){
-               if(!isNullOrEmpty(value)){
-                 SimpleChi2GUI.Alpha = parseFloat(value);
-                 SimpleChi2GUI.click();
-               }
-             }
-             if(key=="Power"){
-               if(!isNullOrEmpty(value)){
-                 SimpleChi2GUI.Power = parseFloat(value);
-                 SimpleChi2GUI.Power_changed();
-               }
-             }
-          }
-     }else{
-       SimpleChi2GUI.news();
-       SimpleChi2GUI.gui(); 
-     }
+     SimpleChi2GUI.proChi2 = parseFloat(params.chi2);
+     SimpleChi2GUI.proN = parseFloat(params.ProN);
+     SimpleChi2GUI.n = parseFloat(params.n);
+     SimpleChi2GUI.df = parseFloat(params.df);
+     SimpleChi2GUI.Alpha = parseFloat(params.alpha)
+     SimpleChi2GUI.click();
+
+     // if(key=="Power"){
+     //   if(!isNullOrEmpty(value)){
+     //     SimpleChi2GUI.Power = parseFloat(value);
+     //     SimpleChi2GUI.Power_changed();
+     //   }
+     // }
      return SimpleChi2GUI;
 }
 //end of SimpleChi2GUI
