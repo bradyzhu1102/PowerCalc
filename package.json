@@ -72,7 +72,7 @@
     "power"
   ],
   "license": "ISC",
-  "main": "custom.js",
+  "main": "powerCalc.js",
   "maintainers": [
     {
       "name": "bradyzhu",
