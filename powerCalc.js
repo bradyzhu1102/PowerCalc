@@ -2436,7 +2436,7 @@ module.exports.SimpleChi2GUI_handle = function(params){
          SimpleChi2GUI.click();
      }
      SimpleChi2GUI.proChi2 = parseFloat(params.chi2);
-     SimpleChi2GUI.proN = parseFloat(params.ProN);
+     SimpleChi2GUI.proN = parseFloat(params.proN);
      SimpleChi2GUI.n = parseFloat(params.n);
      SimpleChi2GUI.df = parseFloat(params.df);
      SimpleChi2GUI.Alpha = parseFloat(params.alpha)
