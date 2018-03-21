@@ -71,7 +71,7 @@ Normal.search = function(paramUni,paramDouble1,paramDouble2, paramDouble3){
            return NaNs();
          }
          paramDouble3 = -1.5 * (d1 - paramDouble2) * d3 / (d3 - d2);
-         
+
          paramDouble2 = d1;
          d2 = d3;
          d1 += paramDouble3;
@@ -81,7 +81,7 @@ Normal.search = function(paramUni,paramDouble1,paramDouble2, paramDouble3){
          if (d1 >= paramUni.xMax) {
            d1 = paramUni.closedMax ? paramUni.xMax : paramUni.xMax - 0.1 * (paramUni.xMax - paramDouble2);
          }
-         
+
          d3 = Normal.cdf(d1) - paramDouble1;
          if (d3==null) {
            return NaNs();
@@ -124,7 +124,7 @@ Normal.pdf = function(paramDouble){
 
 Normal.illinois = function(paramUniFunction, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5){
   var i = 0;
-  
+
   if ((paramDouble4 + paramDouble5)==null) {
     return NaNs();
   }
@@ -137,7 +137,7 @@ Normal.illinois = function(paramUniFunction, paramDouble1, paramDouble2, paramDo
       return NaNs();
     }
     var d1 = paramDouble3 - paramDouble5 * (paramDouble3 - paramDouble2) / (paramDouble5 - paramDouble4);
-    
+
     var d2 = paramUniFunction.of(d1) - paramDouble1;
     if (d2==null) {
       return NaNs();
@@ -308,7 +308,7 @@ module.exports.cfap = function(id, key, value){
      }
   }else{
   onePCIGUI.news();
-  onePCIGUI.gui();   
+  onePCIGUI.gui();
   }
   return onePCIGUI;
   }
@@ -338,12 +338,12 @@ OneTCIGUI.news = function() {
 }
 
 OneTCIGUI.gui = function(){
-  this.isFinite=1; 
+  this.isFinite=1;
   this.NN=1000.0;
   this.conf=0.95;
   this.Sigma=1.0;
   this.ME=0.2;
-  this.n=25.0;    
+  this.n=25.0;
   OneTCIGUI.n_changed();
 }
 
@@ -544,7 +544,7 @@ var Chi2Aux = {
   feps : 1.0E-010,
   verbose : false,
   df:0.0,
-  lambda:0.0  
+  lambda:0.0
 }
 
 
@@ -571,7 +571,7 @@ var Chi2Aux2 = {
     feps : 1.0E-010,
     verbose : false,
     df:0.0,
-    alpha:0.0 
+    alpha:0.0
 }
 
 
@@ -600,7 +600,7 @@ Solve.illinois = function(paramUniFunction, paramDouble1, paramDouble2, paramDou
     var x = this.illinois(paramUniFunction, paramDouble1, paramDouble2, paramDouble3, d1, d2);
     return x;
   }
-  
+
 Solve.illinois = function(paramUniFunction, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5){
     var i = 0;
     if ((paramDouble4 + paramDouble5) == null) {
@@ -631,7 +631,7 @@ Solve.illinois = function(paramUniFunction, paramDouble1, paramDouble2, paramDou
     }
     return NaNs();
   }
-  
+
 Solve.search = function(paramUniFunction, paramDouble1, paramDouble2, paramDouble3){
     var d1 = paramDouble2 + paramDouble3;
     var i = 0;
@@ -649,7 +649,7 @@ Solve.search = function(paramUniFunction, paramDouble1, paramDouble2, paramDoubl
         return NaNs();
       }
       paramDouble3 = -1.5 * (d1 - paramDouble2) * d3 / (d3 - d2);
-      
+
       paramDouble2 = d1;
       d2 = d3;
       d1 += paramDouble3;
@@ -900,7 +900,7 @@ T.powerEquiv5 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4,
   var d1 = this.quantile2(1.0 - paramDouble5, paramDouble4);
   var d2 = paramDouble1 / paramDouble3;
   var d3 = paramDouble2 / paramDouble3;
-  
+
 
   var d6 = 0.5 * paramDouble4;
   var d7 = 0.0, d4, d8, d9;
@@ -917,7 +917,7 @@ T.powerEquiv5 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4,
   var d5 = d4 / 100.0;
   for ( d9 = d5; d9 < d4; d9 += d5){
     var d10 = Normal.cdf(d3 - d2 - d1 * d9) - Normal.cdf(d1 * d9 - d3 - d2);
-    
+
     var d11 = Math.pow(d9, paramDouble4 - 1.0) * Math.exp(-d6 * d9 * d9);
     d7 += d10 * d11;
   }
@@ -947,7 +947,7 @@ var Beta = {}
 
 Beta.cdf3 = function(paramDouble1, paramDouble2, paramDouble3){
     var d11 = 1.0E-008;
-    
+
     var j = 500;
     var k = 0;var m = 0;var n = 0;
     if ((paramDouble2 <= 0.0) || (paramDouble3 <= 0.0)){
@@ -1010,10 +1010,10 @@ Beta.cdf3 = function(paramDouble1, paramDouble2, paramDouble3){
     }
     return d2;
   }
-  
+
 Beta.oldCdf = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     var d6 = 1.0E-008;
-    
+
     var j = 500;
     if ((paramDouble2 <= 0.0) || (paramDouble3 <= 0.0) || (paramDouble4 < 0.0)){
       return (0.0 / 0.0);
@@ -1040,7 +1040,7 @@ Beta.oldCdf = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     }
     return d5;
   }
-  
+
 Beta.cdf4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     var j = 0;
     if ((paramDouble2 <= 0.0) || (paramDouble3 <= 0.0) || (paramDouble4 < 0.0)){
@@ -1063,10 +1063,10 @@ Beta.cdf4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     var i = k;
     var d1 = this.cdf3(paramDouble1, paramDouble2 + i, paramDouble3);
     var d2 = MoreMath.logGamma(paramDouble2 + paramDouble3 + i - 1.0) - MoreMath.logGamma(paramDouble2 + i - 1.0) - MoreMath.logGamma(paramDouble3) + (paramDouble2 + i - 1.0) * Math.log(paramDouble1) + paramDouble3 * Math.log(1.0 - paramDouble1);
-    
+
     d2 = Math.exp(d2) / (paramDouble2 + i - 1.0);
     var d3 = Math.exp(-paramDouble4 + i * Math.log(paramDouble4) - MoreMath.logGamma(i + 1));
-    
+
     var d4 = d3 * d1;
     d3 *= i / paramDouble4;
     for (i = k - 1; i >= j; i--)
@@ -1078,7 +1078,7 @@ Beta.cdf4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     }
     return d4;
   }
-  
+
 var BetaAux = {
   xMax:9.0E+300,
   xMin:-9.0E+300,
@@ -1112,17 +1112,17 @@ Beta.quantile = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4)
       return paramDouble1;
     }
     var d1 = 4.91 * (Math.pow(paramDouble1, 0.14) - Math.pow(1.0 - paramDouble1, 0.14));
-    
+
     var d2 = paramDouble2 + paramDouble4 / 2.0;
-    
+
     var d3 = d2 / (d2 + paramDouble3) + d1 * Math.sqrt(d2 * paramDouble3 / Math.pow(d2 + paramDouble3, 3.0));
     d3 = Math.min(0.99, Math.max(0.01, d3));
-    
+
     BetaAux.news(paramDouble2, paramDouble3, paramDouble4);
     var x = Solve.search(BetaAux, paramDouble1, d3, 0.01);
     return x;
   }
-  
+
 Beta.quantile3 = function(paramDouble1, paramDouble2, paramDouble3){
   var x = this.quantile(paramDouble1, paramDouble2, paramDouble3, 0.0);
     return x;
@@ -1143,12 +1143,12 @@ MoreMath.logGamma = function(paramDouble){
     var x = (paramDouble - 0.5) * Math.log(paramDouble) - paramDouble + 0.9189385332046727 + (1.0 - d * (1.0 - d * (1.0 - 0.75 * d) / 3.5) / 30.0) / 12.0 / paramDouble;
     return x;
   }
-  
+
 MoreMath.gamma = function(paramDouble){
   var x = Math.exp(this.logGamma(paramDouble));
     return x;
   }
-  
+
 MoreMath.beta = function(paramDouble1, paramDouble2){
   var x = Math.exp(this.logGamma(paramDouble1 + paramDouble2) - this.logGamma(paramDouble1) - this.logGamma(paramDouble2));
     return x;
@@ -1171,7 +1171,7 @@ MoreMath.beta = function(paramDouble1, paramDouble2){
     var x = Beta.cdf3(1.0 - paramDouble, 0.0 + paramInt2 - paramInt1, paramInt1 + 1.0);
     return x;
   }
-  
+
  Binomial.quantile = function(paramDouble1, paramInt, paramDouble2){
     if ((paramDouble1 < 0.0) || (paramDouble1 > 1.0))
     {
@@ -1200,7 +1200,7 @@ MoreMath.beta = function(paramDouble1, paramDouble2){
     }
     return i;
   }
-  
+
  Binomial.power = function(paramDouble1, paramDouble2, paramInt1, paramInt2, paramDouble3){
     var i;
     var d1;
@@ -1223,11 +1223,11 @@ MoreMath.beta = function(paramDouble1, paramDouble2){
     }
     return new Array(d2, d1);
   }
-  
+
  Binomial.waldPower = function(paramDouble1, paramDouble2, paramInt1, paramInt2, paramDouble3){
     var d1 = 0.0;var d2 = 0.0;
     var d6 = paramInt2 == 0 ? paramDouble3 / 2.0 : paramDouble3;
-    
+
 
     var d7 = Normal.quantile(1.0 - d6);
     var d4;
@@ -1425,24 +1425,24 @@ OnePGUI.prototype.click = function(){
       this.p0 = Math.min(Math.max(this.p0, 0.01), 0.99);
       this.p = Math.min(Math.max(this.p, 0.01), 0.99);
       switch (this.Method){
-      case 0: 
+      case 0:
         arrayOfDouble = Binomial.power(this.p0, this.p, this.n, i, this.Alpha);
         this.Power = arrayOfDouble[0];
         this.sizes = arrayOfDouble[1];
         break;
-      case 1: 
+      case 1:
         var d1 = Math.sqrt(this.p0 * (1.0 - this.p0) / this.n);
         var d2 = Math.sqrt(this.p * (1.0 - this.p) / this.n);
         var xx = this.nPower(this.p0, d1, this.p, d2, i, this.Alpha);
         this.Power = xx;
         this.sizes = this.Alpha;
         break;
-      case 2: 
+      case 2:
         this.Power = this.bPower((this.n - 1.0) * this.p0, (this.n - 1.0) * (1.0 - this.p0), (this.n - 1.0) * this.p, (this.n - 1.0) * (1.0 - this.p), i, this.Alpha);
-        
+
         this.sizes = this.Alpha;
         break;
-      case 3: 
+      case 3:
         arrayOfDouble = Binomial.waldPower(this.p0, this.p, this.n, i, this.Alpha);
         this.Power = arrayOfDouble[0];
         this.sizes = arrayOfDouble[1];
@@ -1474,7 +1474,7 @@ OnePGUI.prototype.Power_changed = function(){
   PowerCalculatorAux.closedMin = true;
   PowerCalculatorAux.xMin = 2.0;
   PowerCalculatorAux.xeps = 0.5;
-  
+
   this.n = pc.solve(PowerCalculatorAux, this.Power, this.n, 20.0);
   console.log(onePGUI.Power, onePGUI.n)
   this.click();
@@ -1578,7 +1578,7 @@ OneTGUI.gui = function(){
   this.sigma=1.0;
   this.diff=0.5;
   this.n=25.0;
-  this.power=0.5; 
+  this.power=0.5;
   this.opt=0;
   this.alpha=0.05;
   this.tt=1;
@@ -1592,7 +1592,7 @@ OneTGUI.click = function(){
 
 OneTGUI.power_changed = function(){
   switch (this.opt){
-  case 0: 
+  case 0:
     if (Math.abs(this.diff) < 0.001 * this.sigma) {
       return;
     }
@@ -1606,7 +1606,7 @@ OneTGUI.power_changed = function(){
       }
     }
     break;
-  case 1: 
+  case 1:
     var d1 = this.diff;
     this.delta = T.delta(this.power, this.n - 1.0, 1 - this.tt, this.alpha);
     this.diff = (this.sigma * this.delta / Math.sqrt(this.n));
@@ -1719,7 +1719,7 @@ Chi2.quantile2 = function(paramDouble1, paramDouble2){
 }
 Chi2.cdf3 = function(paramDouble1, paramDouble2, paramDouble3){
   var d12 = 1.0E-008;
-  var j = 500;
+  var j = 1000;
   if (paramDouble1 <= 0.0) {
     return 0.0;
   }
@@ -1737,7 +1737,7 @@ Chi2.cdf3 = function(paramDouble1, paramDouble2, paramDouble3){
   var d7;
   var d10;
   var d3;
-  if (paramDouble1 / paramDouble2 > 1.0)  {
+  if (paramDouble1 / paramDouble2 > 1.01)  {
     d7 = 0.0;
     var d8 = d6 / d1;
     d10 = 1.0 / d1;
@@ -1786,10 +1786,8 @@ Chi2.cdf3 = function(paramDouble1, paramDouble2, paramDouble3){
       d4 += d5 * d7;
       d7 -= d6;
       d6 *= d1 / d2;
-      d2 += 1.0;
-    } while ((d10 * d7 >= d12) && (i <= j));
-    if (i > j) {
-    }
+      d2 += 1;
+    } while ((d10 * d7 >= 0.01) && (i <= j));
   }
   return d4;
 }
@@ -1922,7 +1920,7 @@ Tukey.wprob = function(paramDouble1, paramDouble2, paramDouble3){
     }
     return d11;
   }
-  
+
 Tukey.cdf4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
   var i = 16;
   var j = 8;
@@ -2008,11 +2006,11 @@ Tukey.cdf4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
     }
     return d11;
   }
-  
+
 Tukey.cdf3 = function(paramDouble1, paramDouble2, paramDouble3) {
     return this.cdf4(paramDouble1, paramDouble2, paramDouble3, 1.0);
   }
-  
+
 Tukey.qinv = function(paramDouble1, paramDouble2, paramDouble3){
     var d1 = 0.322232421088;
     var d2 = 0.099348462606;
@@ -2042,7 +2040,7 @@ Tukey.qinv = function(paramDouble1, paramDouble2, paramDouble3){
     }
     return d19 * (d18 * Math.log(paramDouble2 - 1.0) + d15);
   }
-  
+
 Tukey.quantile4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble4){
   var d1 = 0.0001;
     var i = 50;
@@ -2086,7 +2084,7 @@ Tukey.quantile4 = function(paramDouble1, paramDouble2, paramDouble3, paramDouble
     }
     return d2;
   }
-  
+
 Tukey.quantile3 = function (paramDouble1, paramDouble2, paramDouble3)  {
     return this.quantile4(paramDouble1, paramDouble2, paramDouble3, 1.0);
   }
@@ -2105,7 +2103,7 @@ Poisson.cdf = function(paramInt, paramDouble)  {
     }
     return 1.0 - Chi2.cdf2(2.0 * paramDouble, 2.0 * (paramInt + 1.0));
   }
-  
+
 Poisson.quantile = function (paramDouble1, paramDouble2)  {
     if (paramDouble2 <= 0.0)    {
       return 2147483647;
@@ -2131,12 +2129,11 @@ Poisson.quantile = function (paramDouble1, paramDouble2)  {
     }
     return i;
   }
-
 //end of Poisson.js
 
 //begin of Pilot.js
 function Pilot(){}
-  
+
 Pilot.prototype = new PowerCalculator();
 Pilot.prototype.risk = 0.0;
 Pilot.prototype.pctUnder = 0.0;
@@ -2147,15 +2144,15 @@ Pilot.prototype.gui = function (){
       this.risk=0.1;
       this.df=80.0;
     }
-    
+
 Pilot.prototype.afterShow = function() {    }
-    
-   
+
+
 Pilot.prototype.click = function (){
       this.df =Math.round(this.df);
       this.risk = Chi2.cdf2((1.0 - 0.01 * this.pctUnder) * this.df, this.df);
     }
-    
+
 Pilot.prototype.risk_changed = function (){
     this.df = pilot.solve( "df","risk", this.risk, this.df, 0.1 * Math.max(10.0, this.df) );
       this.click();
@@ -2186,7 +2183,7 @@ module.exports.pilot_handle = function(id, key, value){
               if(!isNullOrEmpty(value)){
                 pilot.risk = parseFloat(value);
                 pilot.risk_changed();
-               
+
               }
             }
             if(key=="df"){
@@ -2232,11 +2229,11 @@ var Rsquare = {
     }
     var d5 = d4;
     var d6 = Math.exp((d2 - 1.0) * Math.log(paramDouble1) + d3 * Math.log(1.0 - paramDouble1) + MoreMath.logGamma(d2 + d3 - 1.0) - MoreMath.logGamma(d2) - MoreMath.logGamma(d3));
-    
+
 
     var d7 = d6 * (d2 + d3 - 1.0) * paramDouble1 / d2;
     var d8 = Math.exp(MoreMath.logGamma(d1 / 2.0 + i) - MoreMath.logGamma(i + 1) - MoreMath.logGamma(d1 / 2.0) + i * Math.log(paramDouble3) + d1 / 2.0 * Math.log(1.0 - paramDouble3));
-    
+
 
     var d9 = d8;
     var d10 = 1.0 - d8;
@@ -2268,7 +2265,7 @@ var Rsquare = {
     }
     return d12;
   }
-  
+
 Rsquare.cdf3 = function(paramDouble1, paramDouble2, paramInt){
     return this.cdf4(paramDouble1, paramDouble2, paramInt, 0.0);
   }
@@ -2317,7 +2314,7 @@ Rsquare.quantile4 = function (paramDouble1, paramDouble2, paramInt, paramDouble3
     RsqAux.news(paramDouble2, paramInt, paramDouble3);
     return Solve.search(RsqAux, paramDouble1, d2, 0.01);
   }
-  
+
 Rsquare.quantile3 = function(paramDouble1, paramDouble2, paramInt){
     return this.quantile4(paramDouble1, paramDouble2, paramInt, 0.0);
   }
@@ -2354,7 +2351,7 @@ RsquareGUI.click = function(){
 
 module.exports.RsquareGUI_handle = function(id, key, value){
      if(isNullOrEmpty(RsquareGUI.n)){
-      RsquareGUI.news(); 
+      RsquareGUI.news();
          RsquareGUI.gui();
          RsquareGUI.click();
      }
@@ -2393,7 +2390,7 @@ module.exports.RsquareGUI_handle = function(id, key, value){
           }
      }else{
 //       RsquareGUI.news();
-//       RsquareGUI.gui();  
+//       RsquareGUI.gui();
      }
      return RsquareGUI;
 }
@@ -2417,13 +2414,13 @@ SimpleChi2GUI.gui = function() {
     this.n=50.0;
     this.Power=0.6;
 }
-    
+
 SimpleChi2GUI.click = function ()   {
     this.n = Math.max(Math.round(this.n), 2.0);
     this.df = Math.max(Math.round(this.df), 1.0);
     this.Power = Chi2.power3(this.n * this.proChi2 / this.proN, this.df, this.Alpha);
   }
-    
+
 SimpleChi2GUI.Power_changed = function ()   {
     this.n = (Chi2.lambda(this.Power, this.df, this.Alpha) * this.proN / this.proChi2);
     this.click();
@@ -2431,14 +2428,14 @@ SimpleChi2GUI.Power_changed = function ()   {
 
 module.exports.SimpleChi2GUI_handle = function(params){
    if(isNullOrEmpty(SimpleChi2GUI.n)){
-      SimpleChi2GUI.news(); 
+      SimpleChi2GUI.news();
          SimpleChi2GUI.gui();
          SimpleChi2GUI.click();
      }
      SimpleChi2GUI.proChi2 = parseFloat(params.chi2);
-     SimpleChi2GUI.proN = parseFloat(params.proN);
-     SimpleChi2GUI.n = parseFloat(params.n);
-     SimpleChi2GUI.df = parseFloat(params.df);
+     SimpleChi2GUI.proN = parseInt(params.proN);
+     SimpleChi2GUI.n = parseInt(params.n);
+     SimpleChi2GUI.df = parseInt(params.df);
      SimpleChi2GUI.Alpha = parseFloat(params.alpha)
      SimpleChi2GUI.click();
 
@@ -2495,56 +2492,71 @@ SimplePoissonGUI.click = function (){
 }
 
 SimplePoissonGUI.alt_changed = function (){
-    setVisible("lower", this.alt < 2);
-    setVisible("upper", this.alt > 0);
     this.click();
 }
 
-module.exports.SimplePoissonGUI_handle = function(id, key, value){
-  if(isNullOrEmpty(SimplePoissonGUI.n)){
-    SimplePoissonGUI.news(); 
-    SimplePoissonGUI.gui();
+// module.exports.SimplePoissonGUI_handle = function(id, key, value){
+//   if(isNullOrEmpty(SimplePoissonGUI.n)){
+//     SimplePoissonGUI.news();
+//     SimplePoissonGUI.gui();
+//     SimplePoissonGUI.click();
+//     }
+//     if(!isNullOrEmpty(id)){
+//           if(!isNullOrEmpty(key)){
+//             if(key=="lambda0"){
+//               if(!isNullOrEmpty(value)){
+//                 SimplePoissonGUI.lambda0 = parseFloat(value);
+//                 SimplePoissonGUI.click();
+//               }
+//             }
+//             if(key=="lambda"){
+//               if(!isNullOrEmpty(value)){
+//                 SimplePoissonGUI.lambda = parseFloat(value);
+//                 SimplePoissonGUI.click();
+//               }
+//             }
+//             if(key=="alpha"){
+//               if(!isNullOrEmpty(value)){
+//                 SimplePoissonGUI.alpha = parseFloat(value);
+//                 SimplePoissonGUI.click();
+//               }
+//             }
+//             if(key=="n"){
+//                 if(!isNullOrEmpty(value)){
+//                   SimplePoissonGUI.n = parseFloat(value);
+//                   SimplePoissonGUI.click();
+//                 }
+//             }
+//             if(key=="alt"){
+//               if(!isNullOrEmpty(value)){
+//                   SimplePoissonGUI.alt = parseInt(value);
+//                 SimplePoissonGUI.alt_changed();
+//               }
+//             }
+//           }
+//     }else{
+//       SimplePoissonGUI.news();
+//       SimplePoissonGUI.gui();
+//       SimplePoissonGUI.click();
+//     }
+//     return SimplePoissonGUI;
+// }
+
+module.exports.SimplePoissonGUI_temp = function(input, tar){
+  SimplePoissonGUI.news();
+  SimplePoissonGUI.gui();
+  SimplePoissonGUI.lambda0 = parseFloat(input.lambda0);
+  SimplePoissonGUI.lambda = parseFloat(input.lambda1);
+  SimplePoissonGUI.alpha = parseFloat(input.alpha);
+  SimplePoissonGUI.power = parseFloat(input.power);
+  SimplePoissonGUI.n = parseFloat(input.n);
+  SimplePoissonGUI.alt = parseInt(input.alt);
+  if (tar == "alt") {
+    SimplePoissonGUI.alt_changed();
+  } else {
     SimplePoissonGUI.click();
-    }
-    if(!isNullOrEmpty(id)){
-          if(!isNullOrEmpty(key)){
-            if(key=="lambda0"){
-              if(!isNullOrEmpty(value)){
-                SimplePoissonGUI.lambda0 = parseFloat(value);
-                SimplePoissonGUI.click();
-              }
-            }
-            if(key=="lambda"){
-              if(!isNullOrEmpty(value)){
-                SimplePoissonGUI.lambda = parseFloat(value);
-                SimplePoissonGUI.click();
-              }
-            }
-            if(key=="alpha"){
-              if(!isNullOrEmpty(value)){
-                SimplePoissonGUI.alpha = parseFloat(value);
-                SimplePoissonGUI.click();
-              }
-            }
-            if(key=="n"){
-                if(!isNullOrEmpty(value)){
-                  SimplePoissonGUI.n = parseFloat(value);
-                  SimplePoissonGUI.click();
-                }
-            }
-            if(key=="alt"){
-              if(!isNullOrEmpty(value)){
-                  SimplePoissonGUI.alt = parseInt(value);
-                SimplePoissonGUI.alt_changed();
-              }
-            }
-          }
-    }else{
-      SimplePoissonGUI.news();
-      SimplePoissonGUI.gui(); 
-      SimplePoissonGUI.click();
-    }
-    return SimplePoissonGUI;
+  }
+  return SimplePoissonGUI;
 }
 //end of SimplePoissonGUI.js
 
@@ -2673,7 +2685,7 @@ TwoTGUI.prototype.power_changed = function(){
     return;
   }
   switch (this.opt){
-  case 0: 
+  case 0:
     var d = this.power;
     this.diff =Math.max(this.diff, 0.01 * (this.sigma1 + this.sigma2));
     for (var i = 0; i < 3; i++){
@@ -2687,7 +2699,7 @@ TwoTGUI.prototype.power_changed = function(){
     this.n2 =Math.max(Math.round(this.n2), 2.0);
     this.sattPower();
     break;
-  case 1: 
+  case 1:
     this.delta = T.delta(this.power, this.df, 1 - this.tt, this.alpha);
     this.diff = (this.delta *Math.sqrt(this.v1 + this.v2));
     this.sattPower();
@@ -2696,7 +2708,7 @@ TwoTGUI.prototype.power_changed = function(){
 
 TwoTGUI.prototype.power_changed_numerical = function(){
   switch (this.opt){
-  case 0: 
+  case 0:
     this.saveN1 = this.n1;
     this.saveN2 = this.n2;
     PowerCalculatorAux.news("mult", "power", this);
@@ -2707,7 +2719,7 @@ TwoTGUI.prototype.power_changed_numerical = function(){
     this.n1 = Math.max(Math.round(this.n1 * this.mult), 10.0);
     this.n2 = Math.max(Math.round(this.n2 * this.mult), 10.0);
     break;
-  case 1: 
+  case 1:
     PowerCalculatorAux.news("diff", "power", this);
     PowerCalculatorAux.xeps = (0.005 * (this.sigma1 + this.sigma2));
     this.diff = Math.max(this.diff, 0.1 * (this.sigma1 + this.sigma2));
@@ -2792,7 +2804,7 @@ module.exports.TwoTGUI_dataDrivenMode_changepower = function(sig1_in, sig2_in, n
 module.exports.TwoTGUI_handle = function(id, key, value){
       if(isNullOrEmpty(ttg)){
         ttg = new TwoTGUI();
-        ttg.news(); 
+        ttg.news();
           ttg.gui();
           ttg.click();
       }
@@ -2883,7 +2895,7 @@ module.exports.TwoTGUI_handle = function(id, key, value){
             }
       }else{
         ttg.news();
-        ttg.gui();  
+        ttg.gui();
       }
       return ttg;
 }
